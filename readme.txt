@@ -60,3 +60,9 @@ db.sqlite3
 .DS_Store" > .gitignore
 $ git status
 $ git add -A .
+$ git commit -m "My blog, first commit"
+
+# Sync with GitHub
+# Create GitHub repository
+$ git remote add origin https://github.com/ldsute/dg-blog.git
+$ git push -u origin master
