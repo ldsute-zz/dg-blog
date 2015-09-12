@@ -61,8 +61,30 @@ db.sqlite3
 $ git status
 $ git add -A .
 $ git commit -m "My blog, first commit"
+# To commit regularly ...
+$ git commit -a
 
 # Sync with GitHub
 # Create GitHub repository
-$ git remote add origin https://github.com/ldsute/dg-blog.git
+$ git remote add origin
 $ git push -u origin master
+# To push regularly ...
+$ git push
+
+# Loading to PythonAnywhere
+# Login and start Bash shell
+$ git clone https://github.com/ldsute/dg-blog.git
+$ cd dg-blog
+$ virtualenv --python=python3.4 myvenv
+$ source myvenv/bin/activate
+$ pip install -r requirements.txt
+$ python manage.py collectstatic
+$ python manage.py migrate
+$ python manage.py createsuperuser
+# Back at the PythonAnywhere web admin site:
+#   Create Webapp
+#   Enter virtualenv path (/home/ldsute/dg-blog/myvenv)
+#   Edit wsgi file (use contents of /var/www/ldsute_pythonanywhere_com_wsgi.py)
+#   Click "Reload ldsute.pythonanywhere.com" button
+# Browse to http://ldsute.pythonanywhere.com/
+# Browse to http://ldsute.pythonanywhere.com/admin
